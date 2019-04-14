@@ -79,4 +79,4 @@ tree_data = {
 print(TreeNode.tree_from_dict(tree_data))
 ```
 #### Output
-<img src="https://raw.githubusercontent.com/salpreh/tablat/master/assets/sample_tree.png" alt="tree_output">
+<img src="https://raw.githubusercontent.com/salpreh/lxtree/master/assets/sample_tree.png" alt="tree_output">
