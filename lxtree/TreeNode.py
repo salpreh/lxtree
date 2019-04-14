@@ -36,6 +36,9 @@ class TreeNode(object):
 
         Raises:
             TypeError: If `node` argument is not an instance of `lxtree.TreeNode`.
+
+        Returns:
+            lxtree.NodeTree: self
         """
         if not isinstance(node, TreeNode):
             raise TypeError('Children of a TreeNode must be also TreeNode objects')
@@ -53,6 +56,9 @@ class TreeNode(object):
 
         Raises:
             TypeError: If `node` argument is not an instance of `lxtree.TreeNode`.
+
+        Returns:
+            lxtree.NodeTree: self
         """
         if not isinstance(node, TreeNode):
             raise TypeError('Children of a TreeNode must be also TreeNode objects')
@@ -67,6 +73,9 @@ class TreeNode(object):
 
         Raises:
             TypeError: If any new child argument is not an instance of `lxtree.TreeNode`.
+
+        Returns:
+            lxtree.NodeTree: self
         """
         self.children = list(new_children)
 
