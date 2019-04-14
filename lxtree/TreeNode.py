@@ -14,13 +14,16 @@ class TreeNode(object):
 
     def __init__(self, name='', children=None):
         self.name = name
-        self.children = children if children else []
+        self.children = list(children) if children else []
 
     def __getitem__(self, i):
         return self.children[i]
 
+    def __setitem__(self, i, value):
+        self.children[i].children = value
+
     def __str__(self):
-        return self.get_three()
+        return self.get_tree()
 
     def insert_child(self, node, index=0):
         """
@@ -37,7 +40,7 @@ class TreeNode(object):
         if not isinstance(node, TreeNode):
             raise TypeError('Children of a TreeNode must be also TreeNode objects')
 
-        self._children.insert(node, index)
+        self._children.insert(index, node)
 
         return self
 
@@ -65,7 +68,7 @@ class TreeNode(object):
         Raises:
             TypeError: If any new child argument is not an instance of `lxtree.TreeNode`.
         """
-        self.children = new_children
+        self.children = list(new_children)
 
         return self
 
@@ -84,7 +87,7 @@ class TreeNode(object):
     def children(self, new_children):
         isTNode = lambda n: isinstance(n, TreeNode)
         allTrue = lambda a, b: a and b
-        if not reduce(allTrue, map(isTNode, new_children)):
+        if len(new_children) > 0 and not reduce(allTrue, map(isTNode, new_children)):
             raise TypeError('Children of a TreeNode must be also TreeNode objects')
 
         self._children = new_children
@@ -110,7 +113,7 @@ class TreeNode(object):
 
         return lines
 
-    def get_three(self):
+    def get_tree(self):
         """
         Generates a draw of the tree content.
 
