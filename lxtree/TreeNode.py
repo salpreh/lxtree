@@ -118,3 +118,41 @@ class TreeNode(object):
             str: Tree figure.
         """
         return '\n'.join(self._tree_lines())
+
+    @staticmethod
+    def tree_from_dict(dict_data):
+        """
+        Creates a tree structure from a dictionary. Each key is a node, and values
+            are a sub-dictionary with the childrens or `None` for leaf nodes.
+            Example:
+             `{'root': {'leaf1': {'leaf11': None, 'leaf12': None}, 'leaf2': None}}`
+
+            Args:
+                dict: Dict representing the tree structure.
+
+            Returns:
+                lxtree.TreeNode: Root of the tree.
+                list of lxtree.TreeNode: List of nodes in case there are more
+                    of one node at first leve depth.
+        """
+        result = []
+        for key, value in dict_data.items():
+            node = TreeNode(str(key))
+
+            # If contains nodes call recursively
+            if value:
+                child_ren = TreeNode.tree_from_dict(value)
+
+                # Method can return one or a many list
+                if type(child_ren) == list:
+                    node.children = child_ren
+
+                else:
+                    node.append_child(child_ren)
+
+            result.append(node)
+
+        if len(result) == 1:
+            return result[0]
+
+        return result
