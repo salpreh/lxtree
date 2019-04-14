@@ -1,0 +1,12 @@
+{
+  "root-node": {
+          "leaf1": {
+              "sub-leaf11": null,
+              "sub-leaf12": {
+                  "sub-leaf121": null
+              },
+              "sub-leaf13": null
+          },
+          "leaf2": null
+  }
+}
