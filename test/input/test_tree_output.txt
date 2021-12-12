@@ -1,7 +1,7 @@
 root-node
-├─leaf1
-│ ├─sub-leaf11
-│ ├─sub-leaf12
-│ │ └─sub-leaf121
-│ └─sub-leaf13
-└─leaf2
+├──leaf1
+│  ├──sub-leaf11
+│  ├──sub-leaf12
+│  │  └──sub-leaf121
+│  └──sub-leaf13
+└──leaf2

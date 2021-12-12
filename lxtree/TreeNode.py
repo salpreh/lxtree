@@ -110,12 +110,12 @@ class TreeNode(object):
         for i, child in enumerate(self.children, start=1):
             child_lines = child._tree_lines()
             if i < len(self.children):
-                lines.append(f'{TreeChars.VERT_RIGHT}{TreeChars.HORZ_LINE}{child_lines[0]}')
-                treeChar = f'{TreeChars.VERT_LINE} '
+                lines.append(f'{TreeChars.VERT_RIGHT}{TreeChars.HORZ_LINE}{TreeChars.HORZ_LINE}{child_lines[0]}')
+                treeChar = f'{TreeChars.VERT_LINE}  '
 
             else:
-                lines.append(f'{TreeChars.DOWN_RIGHT}{TreeChars.HORZ_LINE}{child_lines[0]}')
-                treeChar = '  '
+                lines.append(f'{TreeChars.DOWN_RIGHT}{TreeChars.HORZ_LINE}{TreeChars.HORZ_LINE}{child_lines[0]}')
+                treeChar = '   '
 
             for child_line in child_lines[1:]:
                 lines.append(f'{treeChar}{child_line}')
